@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Himanshu Raj | Editor & Creative Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#030308;
+    --card:rgba(20,20,35,.75);
+    --accent:#00f5ff;
+    --accent2:#ff2cdf;
+    --text:#fff;
+    --muted:#a0aec0;
+    --border:rgba(255,255,255,.1);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+html{scroll-behavior:smooth;}
+body{
+    background:radial-gradient(circle at 50% 0%,#1a1a3a 0%,#030308 70%);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* Loader */
+#loader{
+    position:fixed;inset:0;background:#000;
+    display:flex;align-items:center;justify-content:center;
+    z-index:99999;transition:.6s;
+}
+#loader.hidden{opacity:0;visibility:hidden;}
+.loader-text{
+    font-size:2.4rem;font-weight:800;letter-spacing:10px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text;color:transparent;
+}
+
+/* Glow */
+.glow-blob{
+    position:fixed;width:500px;height:500px;
+    background:radial-gradient(circle,rgba(0,245,255,.18),transparent 70%);
+    filter:blur(90px);border-radius:50%;
+    top:-10%;left:-10%;z-index:-1;
+    animation:move 20s infinite alternate ease-in-out;
+}
+@keyframes move{to{transform:translate(100vw,50vh);}}
+
+/* Hero */
+header{
+    min-height:100vh;display:flex;align-items:center;
+    justify-content:center;text-align:center;padding:20px;
+}
+.hero-content h1{
+    font-size:clamp(3rem,10vw,6rem);
+    background:linear-gradient(to right,#fff,var(--accent));
+    -webkit-background-clip:text;color:transparent;
+}
+.hero-content p{
+    max-width:620px;margin:20px auto;
+    color:var(--muted);font-size:1.15rem;
+}
+.btn{
+    display:inline-block;margin-top:40px;
+    padding:16px 40px;border-radius:100px;
+    background:#fff;color:#000;
+    text-decoration:none;font-weight:600;
+    transition:.3s;
+}
+.btn:hover{
+    background:var(--accent);
+    box-shadow:0 0 40px rgba(0,245,255,.5);
+    transform:translateY(-3px);
+}
+
+/* Sections */
+section{padding:120px 10vw;}
+h2{
+    font-size:2.4rem;margin-bottom:50px;
+    position:relative;display:inline-block;
+}
+h2::after{
+    content:"";position:absolute;left:0;bottom:-10px;
+    width:50px;height:4px;background:var(--accent2);
+}
+
+/* Cards */
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:40px;
+    backdrop-filter:blur(12px);
+    transition:.4s;
+}
+.card:hover{
+    transform:translateY(-8px);
+    border-color:var(--accent);
+}
+
+/* Grid */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+/* YouTube */
+.yt-card h3{font-size:1.4rem;margin-bottom:10px;}
+.yt-card a{
+    color:var(--accent);
+    text-decoration:none;font-weight:600;
+}
+.yt-card iframe{
+    width:100%;height:230px;
+    border-radius:16px;border:none;
+    margin-top:18px;
+}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:.8s;}
+.reveal.active{opacity:1;transform:none;}
+
+footer{
+    padding:60px;text-align:center;
+    border-top:1px solid var(--border);
+    color:var(--muted);font-size:.9rem;
+}
+
+@media(max-width:768px){
+    section{padding:80px 6vw;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader"><div class="loader-text">HIMANSHU</div></div>
+<div class="glow-blob"></div>
+
+<header>
+<div class="hero-content">
+    <h1>Himanshu Raj</h1>
+    <p>
+        Editor & Creative Developer focused on anime edits, cube content,
+        and clean, retention-driven visuals.
+    </p>
+    <a href="#youtube" class="btn">Watch My Work</a>
+</div>
+</header>
+
+<section class="reveal">
+<h2>The Vision</h2>
+<div class="card">
+<p style="font-size:1.15rem;">
+I create <strong>anime edits</strong> and <strong>cube-focused content</strong> with a clear goal:
+strong pacing, emotional timing, and steady improvement.
+No fake numbers — just real work and consistency.
+</p>
+</div>
+</section>
+
+<section id="youtube" class="reveal">
+<h2>YouTube Presence</h2>
+
+<div class="grid">
+
+<!-- SonuSolves -->
+<div class="card yt-card">
+    <h3>@SonuSolves</h3>
+    <p class="muted">Cube solves • Practice • Learning content</p>
+    <a href="https://www.youtube.com/@SonuSolves" target="_blank">
+        Visit Channel →
+    </a>
+    <iframe
+        src="https://www.youtube.com/embed/GbTDG1qBgwM"
+        title="SonuSolves Cube Short"
+        allowfullscreen>
+    </iframe>
+</div>
+
+<!-- SonuCoool -->
+<div class="card yt-card">
+    <h3>@SonuCoool</h3>
+    <p class="muted">Anime edits • Shorts • Visual experiments</p>
+    <a href="https://www.youtube.com/@SonuCoool" target="_blank">
+        Visit Channel →
+    </a>
+    <iframe
+        src="https://www.youtube.com/embed/Gu3ca0N1JHU"
+        title="SonuCoool Anime Edit"
+        allowfullscreen>
+    </iframe>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Himanshu Raj — Built clean. No fake flex ⚡</p>
+</footer>
+
+<script>
+window.addEventListener("load",()=>{
+    setTimeout(()=>{
+        document.getElementById("loader").classList.add("hidden");
+    },800);
+});
+
+const observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+        if(e.isIntersecting)e.target.classList.add("active");
+    });
+},{threshold:.1});
+
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
