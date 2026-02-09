@@ -3,134 +3,164 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Himanshu Raj | Editor & Creative Developer</title>
+<title>Himanshu Raj | Creative Developer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-    --bg:#030308;
-    --card:rgba(20,20,35,.75);
-    --accent:#00f5ff;
-    --accent2:#ff2cdf;
-    --text:#fff;
-    --muted:#a0aec0;
-    --border:rgba(255,255,255,.1);
+  --bg:#030308;
+  --card:rgba(20,20,35,.75);
+  --accent:#00f5ff;
+  --accent2:#ff2cdf;
+  --text:#ffffff;
+  --muted:#a0aec0;
+  --border:rgba(255,255,255,.1);
+  --font:16px;
 }
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;font-size:var(--font);}
 body{
-    background:radial-gradient(circle at 50% 0%,#1a1a3a 0%,#030308 70%);
-    color:var(--text);
-    overflow-x:hidden;
+  background:radial-gradient(circle at 50% 0%,#1a1a3a 0%,var(--bg) 70%);
+  color:var(--text);
+  overflow-x:hidden;
 }
 
-/* Loader */
+/* NAVBAR */
+nav{
+  position:fixed;top:0;left:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 6vw;
+  background:rgba(10,10,20,.6);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  z-index:9999;
+}
+nav h1{
+  font-weight:800;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;color:transparent;
+}
+nav button{
+  background:none;border:1px solid var(--border);
+  color:var(--text);padding:8px 14px;
+  border-radius:10px;cursor:pointer;
+  transition:.3s;
+}
+nav button:hover{
+  border-color:var(--accent);
+  box-shadow:0 0 15px rgba(0,245,255,.4);
+}
+
+/* SETTINGS PANEL */
+#settings{
+  position:fixed;top:70px;right:-280px;
+  width:260px;background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+  transition:.4s ease;
+  z-index:9998;
+}
+#settings.active{right:20px;}
+#settings h3{margin-bottom:14px;}
+.setting{
+  margin-bottom:16px;
+}
+.setting label{
+  font-size:.85rem;color:var(--muted);
+}
+.setting input{
+  width:100%;margin-top:6px;
+}
+
+/* LOADER */
 #loader{
-    position:fixed;inset:0;background:#000;
-    display:flex;align-items:center;justify-content:center;
-    z-index:99999;transition:.6s;
+  position:fixed;inset:0;background:#000;
+  display:flex;align-items:center;justify-content:center;
+  z-index:99999;
 }
-#loader.hidden{opacity:0;visibility:hidden;}
 .loader-text{
-    font-size:2.4rem;font-weight:800;letter-spacing:10px;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    -webkit-background-clip:text;color:transparent;
+  font-size:2.5rem;font-weight:800;letter-spacing:8px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;color:transparent;
+  animation:pulse 1.5s infinite alternate;
 }
+@keyframes pulse{to{letter-spacing:14px;opacity:.6;}}
 
-/* Glow */
-.glow-blob{
-    position:fixed;width:500px;height:500px;
-    background:radial-gradient(circle,rgba(0,245,255,.18),transparent 70%);
-    filter:blur(90px);border-radius:50%;
-    top:-10%;left:-10%;z-index:-1;
-    animation:move 20s infinite alternate ease-in-out;
-}
-@keyframes move{to{transform:translate(100vw,50vh);}}
-
-/* Hero */
+/* HERO */
 header{
-    min-height:100vh;display:flex;align-items:center;
-    justify-content:center;text-align:center;padding:20px;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:120px 20px 20px;
 }
-.hero-content h1{
-    font-size:clamp(3rem,10vw,6rem);
-    background:linear-gradient(to right,#fff,var(--accent));
-    -webkit-background-clip:text;color:transparent;
+.hero-content h2{
+  font-size:clamp(3rem,9vw,6rem);
+  background:linear-gradient(to right,#fff,var(--accent));
+  -webkit-background-clip:text;color:transparent;
 }
 .hero-content p{
-    max-width:620px;margin:20px auto;
-    color:var(--muted);font-size:1.15rem;
+  max-width:640px;margin:20px auto;
+  color:var(--muted);font-size:1.15rem;
 }
 .btn{
-    display:inline-block;margin-top:40px;
-    padding:16px 40px;border-radius:100px;
-    background:#fff;color:#000;
-    text-decoration:none;font-weight:600;
-    transition:.3s;
+  display:inline-block;margin-top:40px;
+  padding:16px 42px;border-radius:100px;
+  background:#fff;color:#000;
+  text-decoration:none;font-weight:600;
+  transition:.3s;
 }
 .btn:hover{
-    background:var(--accent);
-    box-shadow:0 0 40px rgba(0,245,255,.5);
-    transform:translateY(-3px);
+  background:var(--accent);
+  box-shadow:0 0 40px rgba(0,245,255,.5);
+  transform:translateY(-4px);
 }
 
-/* Sections */
-section{padding:120px 10vw;}
-h2{
-    font-size:2.4rem;margin-bottom:50px;
-    position:relative;display:inline-block;
+/* SECTIONS */
+section{padding:120px 8vw;}
+h3.section-title{
+  font-size:2.4rem;margin-bottom:40px;
 }
-h2::after{
-    content:"";position:absolute;left:0;bottom:-10px;
-    width:50px;height:4px;background:var(--accent2);
-}
-
-/* Cards */
 .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:24px;
-    padding:40px;
-    backdrop-filter:blur(12px);
-    transition:.4s;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:26px;
+  padding:40px;
+  backdrop-filter:blur(14px);
+  transition:.4s;
 }
 .card:hover{
-    transform:translateY(-8px);
-    border-color:var(--accent);
+  transform:translateY(-10px) scale(1.01);
+  border-color:var(--accent);
 }
 
-/* Grid */
+/* GRID */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
 
-/* YouTube */
-.yt-card h3{font-size:1.4rem;margin-bottom:10px;}
-.yt-card a{
-    color:var(--accent);
-    text-decoration:none;font-weight:600;
-}
+/* YOUTUBE */
 .yt-card iframe{
-    width:100%;height:230px;
-    border-radius:16px;border:none;
-    margin-top:18px;
+  width:100%;height:240px;
+  border-radius:16px;border:none;
+  margin-top:18px;
 }
 
-/* Reveal */
-.reveal{opacity:0;transform:translateY(30px);transition:.8s;}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s;}
 .reveal.active{opacity:1;transform:none;}
 
 footer{
-    padding:60px;text-align:center;
-    border-top:1px solid var(--border);
-    color:var(--muted);font-size:.9rem;
+  padding:60px;text-align:center;
+  border-top:1px solid var(--border);
+  color:var(--muted);
 }
 
 @media(max-width:768px){
-    section{padding:80px 6vw;}
+  section{padding:80px 6vw;}
 }
 </style>
 </head>
@@ -138,84 +168,102 @@ footer{
 <body>
 
 <div id="loader"><div class="loader-text">HIMANSHU</div></div>
-<div class="glow-blob"></div>
+
+<nav>
+  <h1>Himanshu</h1>
+  <button onclick="toggleSettings()">⚙ Settings</button>
+</nav>
+
+<div id="settings">
+  <h3>Customize</h3>
+
+  <div class="setting">
+    <label>Accent Color</label>
+    <input type="color" onchange="setAccent(this.value)">
+  </div>
+
+  <div class="setting">
+    <label>Font Size</label>
+    <input type="range" min="14" max="18" value="16" onchange="setFont(this.value)">
+  </div>
+
+  <div class="setting">
+    <label>
+      <input type="checkbox" onchange="toggleTheme()"> Light Mode
+    </label>
+  </div>
+</div>
 
 <header>
-<div class="hero-content">
-    <h1>Himanshu Raj</h1>
-    <p>
-        Editor & Creative Developer focused on anime edits, cube content,
-        and clean, retention-driven visuals.
-    </p>
+  <div class="hero-content reveal">
+    <h2>Himanshu Raj</h2>
+    <p>Anime edits, cube content & clean creative development with consistency.</p>
     <a href="#youtube" class="btn">Watch My Work</a>
-</div>
+  </div>
 </header>
 
 <section class="reveal">
-<h2>The Vision</h2>
-<div class="card">
-<p style="font-size:1.15rem;">
-I create <strong>anime edits</strong> and <strong>cube-focused content</strong> with a clear goal:
-strong pacing, emotional timing, and steady improvement.
-No fake numbers — just real work and consistency.
-</p>
-</div>
+  <h3 class="section-title">The Vision</h3>
+  <div class="card">
+    <p>
+      I focus on real improvement — strong pacing, visuals that hit,
+      and content that grows naturally.
+    </p>
+  </div>
 </section>
 
 <section id="youtube" class="reveal">
-<h2>YouTube Presence</h2>
+  <h3 class="section-title">YouTube Presence</h3>
+  <div class="grid">
 
-<div class="grid">
+    <div class="card yt-card">
+      <h4>@SonuSolves</h4>
+      <iframe src="https://www.youtube.com/embed/GbTDG1qBgwM" allowfullscreen></iframe>
+    </div>
 
-<!-- SonuSolves -->
-<div class="card yt-card">
-    <h3>@SonuSolves</h3>
-    <p class="muted">Cube solves • Practice • Learning content</p>
-    <a href="https://www.youtube.com/@SonuSolves" target="_blank">
-        Visit Channel →
-    </a>
-    <iframe
-        src="https://www.youtube.com/embed/GbTDG1qBgwM"
-        title="SonuSolves Cube Short"
-        allowfullscreen>
-    </iframe>
-</div>
+    <div class="card yt-card">
+      <h4>@SonuCoool</h4>
+      <iframe src="https://www.youtube.com/embed/Gu3ca0N1JHU" allowfullscreen></iframe>
+    </div>
 
-<!-- SonuCoool -->
-<div class="card yt-card">
-    <h3>@SonuCoool</h3>
-    <p class="muted">Anime edits • Shorts • Visual experiments</p>
-    <a href="https://www.youtube.com/@SonuCoool" target="_blank">
-        Visit Channel →
-    </a>
-    <iframe
-        src="https://www.youtube.com/embed/Gu3ca0N1JHU"
-        title="SonuCoool Anime Edit"
-        allowfullscreen>
-    </iframe>
-</div>
-
-</div>
+  </div>
 </section>
 
 <footer>
-<p>© 2026 Himanshu Raj — Built clean. No fake flex ⚡</p>
+  © 2026 Himanshu Raj — Clean. Focused. Real ⚡
 </footer>
 
 <script>
-window.addEventListener("load",()=>{
-    setTimeout(()=>{
-        document.getElementById("loader").classList.add("hidden");
-    },800);
-});
+/* Loader */
+window.onload=()=>setTimeout(()=>loader.remove(),900);
 
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-        if(e.isIntersecting)e.target.classList.add("active");
-    });
-},{threshold:.1});
+/* Reveal */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>i.isIntersecting&&i.target.classList.add("active"))
+},{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
 
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+/* Settings */
+const panel=document.getElementById("settings");
+function toggleSettings(){panel.classList.toggle("active");}
+
+function setAccent(c){
+  document.documentElement.style.setProperty("--accent",c);
+  localStorage.setItem("accent",c);
+}
+function setFont(v){
+  document.documentElement.style.setProperty("--font",v+"px");
+  localStorage.setItem("font",v);
+}
+function toggleTheme(){
+  const dark=getComputedStyle(document.documentElement).getPropertyValue("--bg")==="#030308";
+  document.documentElement.style.setProperty("--bg",dark?"#f5f5f5":"#030308");
+  document.documentElement.style.setProperty("--text",dark?"#000":"#fff");
+}
+
+/* Load saved */
+if(localStorage.accent) setAccent(localStorage.accent);
+if(localStorage.font) setFont(localStorage.font);
 </script>
 
 </body>
