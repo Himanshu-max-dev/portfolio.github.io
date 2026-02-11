@@ -3,19 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Himanshu Raj | Pro Portfolio</title>
+<title>Himanshu Raj | Creative Empire</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= ROOT VARIABLES ================= */
+/* ================= ROOT THEMES ================= */
 :root{
   --bg:#0b0b0f;
   --surface:#141414;
   --accent:#e50914;
   --text:#ffffff;
-  --muted:#b3b3b3;
+}
+
+.light-mode{
+  --bg:#f5f5f5;
+  --surface:#ffffff;
+  --accent:#ff3b3b;
+  --text:#111111;
 }
 
 *{
@@ -28,15 +34,14 @@
 body{
   background:var(--bg);
   color:var(--text);
-  overflow-x:hidden;
+  transition:0.3s;
 }
 
-/* ================= NAVBAR ================= */
 nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(0,0,0,.9);
+  background:rgba(0,0,0,0.85);
   display:flex;
   justify-content:space-between;
   padding:15px 6vw;
@@ -44,229 +49,259 @@ nav{
 }
 
 nav h1{color:var(--accent);}
+nav button{
+  margin-left:10px;
+}
 
-/* ================= HERO ================= */
 header{
-  height:100vh;
+  height:70vh;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-  background:
-    linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.3)),
-    url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920");
+  background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.2)),
+  url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920");
   background-size:cover;
   background-attachment:fixed;
 }
 
-header h2{font-size:3rem;}
+header h2{font-size:2.5rem;}
 
-/* ================= SECTION FADE ================= */
 section{
   padding:100px 8vw;
-  opacity:0;
-  transform:translateY(50px);
-  transition:all .8s ease;
 }
 
-section.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ================= NETFLIX ROW ================= */
-.row{
-  margin-top:30px;
-}
-
-.row h3{
-  margin-bottom:20px;
-}
-
-.row-content{
-  display:flex;
-  overflow-x:auto;
-  gap:20px;
-  scroll-behavior:smooth;
-}
-
-.row-content::-webkit-scrollbar{display:none;}
-
-.row-card{
-  min-width:250px;
-  background:var(--surface);
-  padding:20px;
+iframe{
   border-radius:10px;
-  transition:.4s;
-}
-
-.row-card:hover{
-  transform:scale(1.08);
-  background:#222;
-}
-
-/* ================= DASHBOARD ================= */
-#dashboard{
-  display:none;
-  background:#111;
-  padding:40px;
-}
-
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.dash-card{
-  background:#1c1c1f;
-  padding:20px;
-  border-radius:10px;
-  text-align:center;
-}
-
-/* ================= LOGIN ================= */
-#loginBox{
-  text-align:center;
-  margin-top:40px;
 }
 
 input{
-  padding:10px;
-  margin:10px;
-  border-radius:6px;
+  padding:8px;
+  margin:5px;
+  border-radius:5px;
   border:none;
 }
 
 button{
-  padding:10px 20px;
+  padding:8px 15px;
+  border:none;
   background:var(--accent);
   color:white;
-  border:none;
-  cursor:pointer;
   border-radius:6px;
+  cursor:pointer;
+}
+
+.comment-box{
+  background:var(--surface);
+  padding:15px;
+  margin:15px 0;
+  border-radius:8px;
+  animation:fadeIn .5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+#adminPanel{
+  display:none;
 }
 
 </style>
 </head>
-
 <body>
 
 <nav>
   <h1>Himanshu</h1>
+  <div>
+    <button onclick="toggleTheme()">🌙/☀</button>
+    <button onclick="showAdmin()">Admin</button>
+  </div>
 </nav>
 
 <header>
-  <h2>Netflix Style Creative Empire</h2>
+  <h2>Welcome to Creative Empire 🎬</h2>
 </header>
 
-<!-- ================= NETFLIX STYLE ROWS ================= -->
+<!-- ================= YOUR REAL VIDEOS ================= -->
 <section>
-  <div class="row">
-    <h3>🔥 Popular Edits</h3>
-    <div class="row-content">
-      <div class="row-card">Edit 1</div>
-      <div class="row-card">Edit 2</div>
-      <div class="row-card">Edit 3</div>
-      <div class="row-card">Edit 4</div>
-    </div>
-  </div>
+  <h2>📺 Latest Shorts & Edits</h2>
 
-  <div class="row">
-    <h3>🎬 Cube Content</h3>
-    <div class="row-content">
-      <div class="row-card">Cube 1</div>
-      <div class="row-card">Cube 2</div>
-      <div class="row-card">Cube 3</div>
-    </div>
+  <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px;">
+
+    <!-- Your real Shorts -->
+    <iframe width="350" height="215"
+      src="https://www.youtube.com/embed/BSryI8EkfdU"
+      allowfullscreen></iframe>
+
+    <iframe width="350" height="215"
+      src="https://www.youtube.com/embed/BxrKEe8vNzk"
+      allowfullscreen></iframe>
+
+    <iframe width="350" height="215"
+      src="https://www.youtube.com/embed/ZyhKu-vBEX0"
+      allowfullscreen></iframe>
+
   </div>
 </section>
 
-<!-- ================= YOUTUBE API SECTION ================= -->
+<!-- ================= COMMENT SECTION ================= -->
 <section>
-  <h2>Live Subscribers</h2>
-  <h1 id="subs">Loading...</h1>
+  <h2>💬 Community Comments</h2>
+
+  <input type="text" id="username" placeholder="Your Name">
+  <input type="text" id="commentInput" placeholder="Write a comment">
+  <button onclick="addComment()">Post</button>
+
+  <div id="commentList"></div>
 </section>
 
-<!-- ================= LOGIN SECTION ================= -->
-<section>
-  <h2>Admin Access</h2>
-
-  <div id="loginBox">
-    <input type="password" id="adminPass" placeholder="Enter Admin Password">
-    <button onclick="login()">Login</button>
-  </div>
-</section>
-
-<!-- ================= DASHBOARD ================= -->
-<section id="dashboard">
-  <h2>Admin Dashboard</h2>
-  <div class="dashboard-grid">
-    <div class="dash-card">
-      <h3>Total Views</h3>
-      <p>2.4M</p>
-    </div>
-    <div class="dash-card">
-      <h3>Subscribers</h3>
-      <p>12.5K</p>
-    </div>
-    <div class="dash-card">
-      <h3>Watch Time</h3>
-      <p>8.1K hrs</p>
-    </div>
-  </div>
+<!-- ================= ADMIN PANEL ================= -->
+<section id="adminPanel">
+  <h2>👑 Admin Access</h2>
+  <input type="password" id="adminPass" placeholder="Enter Password">
+  <button onclick="adminLogin()">Login</button>
 </section>
 
 <script>
-
-/* ================= SMOOTH FADE ON SCROLL ================= */
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-  });
-},{threshold:0.2});
-
-sections.forEach(section=>{
-  observer.observe(section);
-});
-
-/* ================= YOUTUBE API FETCH ================= */
-/* Replace YOUR_API_KEY and YOUR_CHANNEL_ID */
-async function fetchSubscribers(){
-  const API_KEY = "YOUR_API_KEY";
-  const CHANNEL_ID = "YOUR_CHANNEL_ID";
-
-  try{
-    const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
-    );
-    const data = await res.json();
-    const subs = data.items[0].statistics.subscriberCount;
-    document.getElementById("subs").innerText = subs + "+";
-  } catch(err){
-    document.getElementById("subs").innerText = "API Error";
-  }
+function toggleTheme(){
+  document.body.classList.toggle("light-mode");
 }
 
-fetchSubscribers();
+let isAdmin=false;
 
-/* ================= ADMIN LOGIN ================= */
-function login(){
-  const correctPassword = "HIMANSHU2026"; // Change this
-  const input = document.getElementById("adminPass").value;
+window.onload=function(){
+  const savedUser=localStorage.getItem("savedUser");
+  if(savedUser){
+    document.getElementById("username").value=savedUser;
+  }
+  loadComments();
+}
 
-  if(input === correctPassword){
-    document.getElementById("dashboard").style.display = "block";
-    alert("Welcome Admin");
-  } else {
+function addComment(){
+  const user=document.getElementById("username").value;
+  const text=document.getElementById("commentInput").value;
+
+  if(user===""||text===""){
+    alert("Fill all fields");
+    return;
+  }
+
+  localStorage.setItem("savedUser",user);
+
+  const comments=JSON.parse(localStorage.getItem("comments"))||[];
+
+  comments.push({
+    user:user,
+    text:text,
+    likes:{heart:0,fire:0,clap:0,cool:0},
+    replies:[],
+    approved:false
+  });
+
+  localStorage.setItem("comments",JSON.stringify(comments));
+  document.getElementById("commentInput").value="";
+  alert("Sent for approval 🔎");
+}
+
+function loadComments(){
+  const comments=JSON.parse(localStorage.getItem("comments"))||[];
+  const list=document.getElementById("commentList");
+  list.innerHTML="";
+
+  comments.forEach((c,index)=>{
+    if(!c.approved && !isAdmin) return;
+
+    const div=document.createElement("div");
+    div.className="comment-box";
+
+    div.innerHTML=`
+      <strong>${c.user}</strong>
+      <p>${c.text}</p>
+
+      ❤️ ${c.likes.heart}
+      🔥 ${c.likes.fire}
+      👏 ${c.likes.clap}
+      😎 ${c.likes.cool}
+
+      <br><br>
+
+      <button onclick="react(${index},'heart')">❤️</button>
+      <button onclick="react(${index},'fire')">🔥</button>
+      <button onclick="react(${index},'clap')">👏</button>
+      <button onclick="react(${index},'cool')">😎</button>
+
+      <br><br>
+
+      <input type="text" id="reply${index}" placeholder="Reply">
+      <button onclick="reply(${index})">Reply</button>
+
+      <div style="margin-left:20px;">
+        ${c.replies.map(r=>`<p><strong>${r.user}:</strong> ${r.text}</p>`).join("")}
+      </div>
+
+      ${isAdmin ? `
+        <br>
+        ${!c.approved ? `<button onclick="approve(${index})" style="background:green;">Approve</button>`:""}
+        <button onclick="deleteComment(${index})" style="background:red;">Delete</button>
+      `:""}
+    `;
+
+    list.appendChild(div);
+  });
+}
+
+function react(index,type){
+  const comments=JSON.parse(localStorage.getItem("comments"));
+  comments[index].likes[type]++;
+  localStorage.setItem("comments",JSON.stringify(comments));
+  loadComments();
+}
+
+function reply(index){
+  const input=document.getElementById("reply"+index);
+  if(input.value==="") return;
+
+  const comments=JSON.parse(localStorage.getItem("comments"));
+  comments[index].replies.push({
+    user:"User",
+    text:input.value
+  });
+
+  localStorage.setItem("comments",JSON.stringify(comments));
+  loadComments();
+}
+
+function approve(index){
+  const comments=JSON.parse(localStorage.getItem("comments"));
+  comments[index].approved=true;
+  localStorage.setItem("comments",JSON.stringify(comments));
+  loadComments();
+}
+
+function deleteComment(index){
+  const comments=JSON.parse(localStorage.getItem("comments"));
+  comments.splice(index,1);
+  localStorage.setItem("comments",JSON.stringify(comments));
+  loadComments();
+}
+
+function showAdmin(){
+  document.getElementById("adminPanel").style.display="block";
+}
+
+function adminLogin(){
+  const pass=document.getElementById("adminPass").value;
+  if(pass==="himanshu@2011"){
+    isAdmin=true;
+    alert("Welcome King 👑");
+    document.getElementById("adminPanel").style.display="none";
+    loadComments();
+  }else{
     alert("Wrong Password");
   }
 }
-
 </script>
 
 </body>
